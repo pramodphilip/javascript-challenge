@@ -41,6 +41,7 @@ var cityText = d3.select('#city');
 var stateText = d3.select('#state');
 var countryText = d3.select('#country');
 var shapeText = d3.select('#shape');
+
 // Filter Button Function
 // For testing purposes, starting with data and city filters
 // First test if the date in question shows up in the list, and
@@ -58,24 +59,41 @@ function mainFilter() {
     // Date/City Filter Steps
 
     // Grab input values for data and city filters
-    var dateInput = dateText.property("value");
-    var cityInput = cityText.property("value");
-    var stateInput = stateText.property("value");
-    var countryInput = countryText.property("value");
-    var shapeInput = shapeText.property("value");
+    var dateInput = dateText.property("value").toLowerCase();
+    var cityInput = cityText.property("value").toLowerCase();
+    var stateInput = stateText.property("value").toLowerCase();
+    var countryInput = countryText.property("value").toLowerCase();
+    var shapeInput = shapeText.property("value").toLowerCase();
 
     // Checks if dateInput is blank or not
     if (dateInput === undefined || dateInput === "") {
-        filteredData = tableData;
+        filteredData = filteredData;
     }
 
     // If dateInput is not blank, do this:
     else {
-        // Check if dateInput is actually in the data set
-        // If it is not, should tell us UFO sighting not find
-
         // If it is in the data set, then do this:
         filteredData = filteredData.filter(item => item.datetime === dateInput);
+
+        // Check if dateInput is actually in the data set
+        // If it is not, should tell us UFO sighting not find
+        if (filteredData.length === 0) {
+            tbody.text("")
+
+            // Row is created for table
+            var row = tbody.append('tr')
+            // Input words into cells that say sighting unavailable
+            row.append('td').text('UFO');
+            row.append('td').text('Sighting');
+            row.append('td').text('Not');
+            row.append('td').text('Found');
+            row.append('td').text('Please')
+            row.append('td').text('Try')
+            row.append('td').text('Again')
+
+            return
+        }
+
     }
 
     // Checks if dateInput is blank or not
@@ -85,11 +103,27 @@ function mainFilter() {
 
     // If dateInput is not blank, do this:
     else {
-        // Check if dateInput is actually in the data set
-        // If it is not, should tell us UFO sighting not find
-
         // If it is in the data set, then do this:
         filteredData = filteredData.filter(item => item.city === cityInput);
+
+        // Check if dateInput is actually in the data set
+        // If it is not, should tell us UFO sighting not find
+        if (filteredData.length === 0) {
+            tbody.text("")
+
+            // Row is created for table
+            var row = tbody.append('tr')
+            // Input words into cells that say sighting unavailable
+            row.append('td').text('UFO');
+            row.append('td').text('Sighting');
+            row.append('td').text('Not');
+            row.append('td').text('Found');
+            row.append('td').text('Please')
+            row.append('td').text('Try')
+            row.append('td').text('Again')
+
+            return
+        }
     }
 
     if (stateInput === undefined || stateInput === "") {
@@ -98,37 +132,85 @@ function mainFilter() {
 
     // If dateInput is not blank, do this:
     else {
-        // Check if dateInput is actually in the data set
-        // If it is not, should tell us UFO sighting not find
-
         // If it is in the data set, then do this:
         filteredData = filteredData.filter(item => item.state === stateInput);
+
+        // Check if dateInput is actually in the data set
+        // If it is not, should tell us UFO sighting not find
+        if (filteredData.length === 0) {
+            tbody.text("")
+
+            // Row is created for table
+            var row = tbody.append('tr')
+            // Input words into cells that say sighting unavailable
+            row.append('td').text('UFO');
+            row.append('td').text('Sighting');
+            row.append('td').text('Not');
+            row.append('td').text('Found');
+            row.append('td').text('Please')
+            row.append('td').text('Try')
+            row.append('td').text('Again')
+
+            return
+        }
     }
 
     if (countryInput === undefined || countryInput === "") {
-        filteredData = tableData;
+        filteredData = filteredData;
     }
 
     // If dateInput is not blank, do this:
     else {
-        // Check if dateInput is actually in the data set
-        // If it is not, should tell us UFO sighting not find
-
         // If it is in the data set, then do this:
         filteredData = filteredData.filter(item => item.country === countryInput);
+
+        // Check if dateInput is actually in the data set
+        // If it is not, should tell us UFO sighting not find
+        if (filteredData.length === 0) {
+            tbody.text("")
+
+            // Row is created for table
+            var row = tbody.append('tr')
+            // Input words into cells that say sighting unavailable
+            row.append('td').text('UFO');
+            row.append('td').text('Sighting');
+            row.append('td').text('Not');
+            row.append('td').text('Found');
+            row.append('td').text('Please')
+            row.append('td').text('Try')
+            row.append('td').text('Again')
+
+            return
+        }
     }
 
     if (shapeInput === undefined || shapeInput === "") {
-        filteredData = tableData;
+        filteredData = filteredData;
     }
 
     // If dateInput is not blank, do this:
     else {
-        // Check if dateInput is actually in the data set
-        // If it is not, should tell us UFO sighting not find
-
         // If it is in the data set, then do this:
         filteredData = filteredData.filter(item => item.shape === shapeInput);
+
+        // Check if dateInput is actually in the data set
+        // If it is not, should tell us UFO sighting not find
+        if (filteredData.length === 0) {
+            tbody.text("")
+
+            // Row is created for table
+            var row = tbody.append('tr')
+            // Input words into cells that say sighting unavailable
+            row.append('td').text('UFO');
+            row.append('td').text('Sighting');
+            row.append('td').text('Not');
+            row.append('td').text('Found');
+            row.append('td').text('Please')
+            row.append('td').text('Try')
+            row.append('td').text('Again')
+
+            return
+        }
     }
 
     // Filling the table based on filters
@@ -196,21 +278,6 @@ function handlePress(event) {
     }
     )
 }
-
-
-// random idea I had
-//     // Clears table
-//     output.text("")
-//     // Row is created for table
-//     var row = output.append('tr')
-//     // Input words into cells that say sighting unavailable
-//     row.append('td').text('UFO');
-//     row.append('td').text('Sighting');
-//     row.append('td').text('Not');
-//     row.append('td').text('Found');
-//     row.append('td').text('Please')
-//     row.append('td').text('Try')
-//     row.append('td').text('Again')
 
 
 // Activate filter table button
