@@ -1,4 +1,4 @@
-// from data.js
+// Data from data.js
 var tableData = data;
 
 // Select the tbody tag from index.html
@@ -7,7 +7,7 @@ var tbody = d3.select("tbody");
 // forEach loop that populates table
 tableData.forEach((item) =>
 {
-    // row is created for table
+    // Row is created for table
     var row = tbody.append('tr');
 
     // Date/Time appended to row
@@ -90,23 +90,24 @@ function mainFilter() {
             row.append('td').text('Please')
             row.append('td').text('Try')
             row.append('td').text('Again')
-
+            
+            // Exits function
             return
         }
 
     }
 
-    // Checks if dateInput is blank or not
+    // Checks if cityInput is blank or not
     if (cityInput === undefined || cityInput === "") {
         filteredData = filteredData;
     }
 
-    // If dateInput is not blank, do this:
+    // If cityInput is not blank, do this:
     else {
         // If it is in the data set, then do this:
         filteredData = filteredData.filter(item => item.city === cityInput);
 
-        // Check if dateInput is actually in the data set
+        // Check if cityInput is actually in the data set
         // If it is not, should tell us UFO sighting not find
         if (filteredData.length === 0) {
             tbody.text("")
@@ -121,21 +122,23 @@ function mainFilter() {
             row.append('td').text('Please')
             row.append('td').text('Try')
             row.append('td').text('Again')
-
+            
+            // Exits function
             return
         }
     }
 
+    // Checks if stateInput is blank or not
     if (stateInput === undefined || stateInput === "") {
         filteredData = filteredData;
     }
 
-    // If dateInput is not blank, do this:
+    // If stateInput is not blank, do this:
     else {
         // If it is in the data set, then do this:
         filteredData = filteredData.filter(item => item.state === stateInput);
 
-        // Check if dateInput is actually in the data set
+        // Check if stateInput is actually in the data set
         // If it is not, should tell us UFO sighting not find
         if (filteredData.length === 0) {
             tbody.text("")
@@ -151,20 +154,22 @@ function mainFilter() {
             row.append('td').text('Try')
             row.append('td').text('Again')
 
+            // Exits function
             return
         }
     }
 
+    // Checks if countryInput is blank or not
     if (countryInput === undefined || countryInput === "") {
         filteredData = filteredData;
     }
 
-    // If dateInput is not blank, do this:
+    // If countryInput is not blank, do this:
     else {
         // If it is in the data set, then do this:
         filteredData = filteredData.filter(item => item.country === countryInput);
 
-        // Check if dateInput is actually in the data set
+        // Check if countryInput is actually in the data set
         // If it is not, should tell us UFO sighting not find
         if (filteredData.length === 0) {
             tbody.text("")
@@ -179,21 +184,22 @@ function mainFilter() {
             row.append('td').text('Please')
             row.append('td').text('Try')
             row.append('td').text('Again')
-
+            
+            // Exits function
             return
         }
     }
-
+    // Checks if shapeInput is blank or not
     if (shapeInput === undefined || shapeInput === "") {
         filteredData = filteredData;
     }
 
-    // If dateInput is not blank, do this:
+    // If shapeInput is not blank, do this:
     else {
         // If it is in the data set, then do this:
         filteredData = filteredData.filter(item => item.shape === shapeInput);
 
-        // Check if dateInput is actually in the data set
+        // Check if shapeInput is actually in the data set
         // If it is not, should tell us UFO sighting not find
         if (filteredData.length === 0) {
             tbody.text("")
@@ -209,6 +215,7 @@ function mainFilter() {
             row.append('td').text('Try')
             row.append('td').text('Again')
 
+            // Exits function
             return
         }
     }
@@ -249,6 +256,7 @@ function mainFilter() {
 
 // Function that activates reset table button
 function handlePress(event) {
+
     // Establishes input press
     var input = event.target;
 
